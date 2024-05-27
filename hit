@@ -1,0 +1,158 @@
+from turtle import *
+
+
+class Sprite(Turtle):
+    def __init__(self, set_shape, set_color, x, y, to_left, step=5):
+        super().__init__()
+        self.speed(0)
+        self.shape(set_shape)
+        self.color(set_color)
+        self.penup()
+        self.setx(x)
+        self.sety(y)
+        self.to_left = to_left
+        self.step = step
+
+    def move_up(self):
+        self.goto(self.xcor(), self.ycor() + self.step)
+
+    def move_down(self):
+        self.goto(self.xcor(), self.ycor() - self.step)
+
+    def move_left(self):
+        self.goto(self.xcor() - self.step, self.ycor())
+
+    def move_right(self):
+        self.goto(self.xcor() + self.step, self.ycor())
+
+    def move(self):
+        if self.to_left:
+            self.move_left()
+            if self.xcor() < -200:
+                self.to_left = False
+        else:
+            self.move_right()
+            if self.xcor() > 200:
+                self.to_left = True
+
+    def is_join(self, enemy):
+        if self.distance(enemy.xcor(), enemy.ycor()) < 23:
+            return True
+        return False
+
+
+my_sprite = Sprite('circle', 'orange', 0, -80, None, 3)
+scr = my_sprite.getscreen()
+
+scr.onkeypress(my_sprite.move_up, 'Up')
+scr.onkeypress(my_sprite.move_down, 'Down')
+scr.onkeypress(my_sprite.move_left, 'Left')
+scr.onkeypress(my_sprite.move_right, 'Right')
+
+e1 = Sprite('square', 'purple', -170, -40, True)
+e2 = Sprite('square', 'purple', 170, 40, False)
+e3 = Sprite('square', 'purple', 0, 260, False)
+e4 = Sprite('square', 'purple', 20, 260, False)
+e5 = Sprite('square', 'purple', 40, 260, False)
+e6 = Sprite('square', 'purple', -20, 260, False)
+e7 = Sprite('square', 'purple', -40, 260, False)
+e8 = Sprite('square', 'purple', -60, 260, False)
+e9 = Sprite('square', 'purple', -80, 260, False)
+e10 = Sprite('square', 'purple', -100, 260, False)
+e11 = Sprite('square', 'purple', -120, 260, False)
+e12 = Sprite('square', 'purple', -140, 260, False)
+e13 = Sprite('square', 'purple', -160, 260, False)
+e14 = Sprite('square', 'purple', -180, 260, False)
+e15 = Sprite('square', 'purple', -200, 260, False)
+e17 = Sprite('square', 'purple', 100, 260, False)
+e18 = Sprite('square', 'green', 120, 260, False)
+e19 = Sprite('square', 'green', 140, 260, False)
+e20 = Sprite('square', 'green', 160, 260, False)
+e21 = Sprite('square', 'green', 180, 260, False)
+e22 = Sprite('square', 'green', 200, 260, False)
+e23 = Sprite('square', 'green', 200, 240, False)
+e24 = Sprite('square', 'green', 200, 220, False)
+e25 = Sprite('square', 'green', 200, 200, False)
+e26 = Sprite('square', 'green', 200, 180, False)
+e27 = Sprite('square', 'green', 200, 160, False)
+e28 = Sprite('square', 'green', 200, 140, False)
+e29 = Sprite('square', 'green', 200, 120, False)
+e30 = Sprite('square', 'green', 180, 120, False)
+e31 = Sprite('square', 'green', 160, 120, False)
+e32 = Sprite('square', 'green', 140, 120, False)
+e33 = Sprite('square', 'green', 120, 120, False)
+e34 = Sprite('square', 'green', 100, 120, False)
+e35 = Sprite('square', 'green', 80, 120, False)
+e36 = Sprite('square', 'green', 60, 120, False)
+e37 = Sprite('square', 'red', 40, 120, False)
+e38 = Sprite('square', 'red', 20, 120, False)
+e39 = Sprite('square', 'red', 0, 120, False)
+e40 = Sprite('square', 'red', -20, 120, False)
+e41 = Sprite('square', 'red', -40, 120, False)
+e42 = Sprite('square', 'red', -60, 120, False)
+e43 = Sprite('square', 'red', -80, 120, False)
+e44 = Sprite('square', 'red', -100, 120, False)
+e45 = Sprite('square', 'red', -120, 120, False)
+e48 = Sprite('square', 'red', -180, 120, False)
+e49 = Sprite('square', 'red', -200, 120, False)
+e50 = Sprite('square', 'red', -200, 140, False)
+e51 = Sprite('square', 'red', -200, 160, False)
+e52 = Sprite('square', 'red', -200, 180, False)
+e53 = Sprite('square', 'red', -200, 200, False)
+e54 = Sprite('square', 'red', -200, 220, False)
+e55 = Sprite('square', 'red', -200, 240, False)
+e56 = Sprite('square', 'blue', -120, 140, False)
+e57 = Sprite('square', 'blue', -120, 160, False)
+e58 = Sprite('square', 'blue', -120, 180, False)
+e59 = Sprite('square', 'blue', -140, 180, False)
+e60 = Sprite('square', 'blue', -180, 220, False)
+e61 = Sprite('square', 'blue', -160, 230, False)
+e62 = Sprite('square', 'blue', -140, 230, False)
+e63 = Sprite('square', 'blue', -120, 230, False)
+e64 = Sprite('square', 'blue', -100, 230, False)
+e65 = Sprite('square', 'blue', -80, 230, False)
+e66 = Sprite('square', 'blue', -60, 230, False)
+e67 = Sprite('square', 'blue', -70, 210, False)
+e68 = Sprite('square', 'blue', -70, 190, False)
+e69 = Sprite('square', 'blue', -70, 175, False)
+e70 = Sprite('square', 'blue', -70, 167, False)
+e71 = Sprite('square', 'blue', -40, 230, False)
+e72 = Sprite('square', 'blue', -20, 230, False)
+e73 = Sprite('square', 'blue', 0, 230, False)
+e74 = Sprite('square', 'blue', 20, 230, False)
+e75 = Sprite('square', 'blue', 40, 230, False)
+e76 = Sprite('square', 'blue', -23, 185, False)
+e77 = Sprite('square', 'blue', -23, 170, False)
+e78 = Sprite('square', 'blue', -23, 150, False)
+e79 = Sprite('square', 'blue', -23, 140, False)
+e80 = Sprite('square', 'blue', 60, 217, False)
+e81 = Sprite('square', 'blue', 80, 210, False)
+e82 = Sprite('square', 'blue', 100, 210, False)
+e83 = Sprite('square', 'blue', -23, 150, False)
+e84 = Sprite('square', 'blue', -23, 140, False)
+e85 = Sprite('square', 'blue', -10, 170, False)
+e86 = Sprite('square', 'blue', 10, 170, False)
+e87 = Sprite('square', 'blue', 30, 170, False)
+e88 = Sprite('square', 'blue', 150, 140, False)
+e89 = Sprite('square', 'blue', 150, 160, False)
+e90 = Sprite('square', 'blue', 150, 180, False)
+e91 = Sprite('square', 'blue', 150, 190, False)
+e92 = Sprite('square', 'blue', 150, 210, False)
+e93 = Sprite('square', 'blue', 150, 230, False)
+
+end_sprite = Sprite('triangle', 'green', 0, 320, False)
+
+scr.listen()
+
+while True:
+    e1.move()
+    e2.move()
+    if my_sprite.is_join(e1) or my_sprite.is_join(e2) or my_sprite.is_join(e3) or my_sprite.is_join(e4) or my_sprite.is_join(e5) or my_sprite.is_join(e6) or my_sprite.is_join(e7) or my_sprite.is_join(e8) or my_sprite.is_join(e9) or my_sprite.is_join(e10) or my_sprite.is_join(e11) or my_sprite.is_join(e12) or my_sprite.is_join(e13) or my_sprite.is_join(e14) or my_sprite.is_join(e15) or my_sprite.is_join(e17) or my_sprite.is_join(e18) or my_sprite.is_join(e19) or my_sprite.is_join(e20) or my_sprite.is_join(e21) or my_sprite.is_join(e22) or my_sprite.is_join(e23) or my_sprite.is_join(e24) or my_sprite.is_join(e25) or my_sprite.is_join(e26) or my_sprite.is_join(e27) or my_sprite.is_join(e28) or my_sprite.is_join(e29) or my_sprite.is_join(e30) or my_sprite.is_join(e31) or my_sprite.is_join(e32) or my_sprite.is_join(e33) or my_sprite.is_join(e34) or my_sprite.is_join(e35) or my_sprite.is_join(e36) or my_sprite.is_join(e37) or my_sprite.is_join(e38) or my_sprite.is_join(e39) or my_sprite.is_join(e40) or my_sprite.is_join(e41) or my_sprite.is_join(e42) or my_sprite.is_join(e43) or my_sprite.is_join(e44) or my_sprite.is_join(e45) or my_sprite.is_join(e48) or my_sprite.is_join(e49) or my_sprite.is_join(e50) or my_sprite.is_join(e51) or my_sprite.is_join(e52) or my_sprite.is_join(e53) or my_sprite.is_join(e54) or my_sprite.is_join(e55) or my_sprite.is_join(e56) or my_sprite.is_join(e57) or my_sprite.is_join(e58) or my_sprite.is_join(e59) or my_sprite.is_join(e60) or my_sprite.is_join(e61) or my_sprite.is_join(e62) or my_sprite.is_join(e63) or my_sprite.is_join(e64) or my_sprite.is_join(e65) or my_sprite.is_join(e66) or my_sprite.is_join(e67) or my_sprite.is_join(e68) or my_sprite.is_join(e69) or my_sprite.is_join(e70) or my_sprite.is_join(e71) or my_sprite.is_join(e72) or my_sprite.is_join(e73) or my_sprite.is_join(e74) or my_sprite.is_join(e75) or my_sprite.is_join(e76) or my_sprite.is_join(e77) or my_sprite.is_join(e78) or my_sprite.is_join(e79) or my_sprite.is_join(e80) or my_sprite.is_join(e81) or my_sprite.is_join(e82) or my_sprite.is_join(e83) or my_sprite.is_join(e84) or my_sprite.is_join(e85) or my_sprite.is_join(e86) or my_sprite.is_join(e87) or my_sprite.is_join(e88) or my_sprite.is_join(e89) or my_sprite.is_join(e90) or my_sprite.is_join(e91) or my_sprite.is_join(e92) or my_sprite.is_join(e93):
+        my_sprite.goto(0, -100)
+    if my_sprite.is_join(end_sprite):
+        my_sprite.hideturtle()
+        my_sprite.goto(-100, 0)
+        my_sprite.write('Ты победил!!!', font=('Arial', 40, 'bold'))
+
+
+end_sprite.hideturtle()
